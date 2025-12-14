@@ -1,0 +1,10 @@
+*.backup
+**/*.swp
+*~
+
+result
+.direnv
+.vscode
+
+secrets.nix
+private/
