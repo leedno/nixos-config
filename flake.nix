@@ -69,12 +69,7 @@
       };
   in {
     nixosConfigurations = {
-      amd = mkNixosConfig "amd";
-      nvidia = mkNixosConfig "nvidia";
-      nvidia-laptop = mkNixosConfig "nvidia-laptop";
-      amd-hybrid = mkNixosConfig "amd-hybrid";
-      intel = mkNixosConfig "intel";
-      vm = mkNixosConfig "vm";
+      main = mkNixosConfig "main";
     };
 
     formatter.x86_64-linux = inputs.alejandra.packages.x86_64-linux.default;

@@ -10,7 +10,7 @@
   displayManager = "sddm";
 
   # Emable/disable bundled applications
-  tmuxEnable = false;
+  tmuxEnable = true;
   alacrittyEnable = false;
   weztermEnable = false;
   ghosttyEnable = false;
@@ -77,17 +77,11 @@
   #  Only uncomment your selection
   # The others much be commented out.
 
-  # Set Stylix Image
-  # This will set your color palette
   # Default background
-  # Add new images to ~/zaneyos/wallpapers
-  stylixImage = ../../wallpapers/mountainscapedark.jpg;
-  #stylixImage = ../../wallpapers/AnimeGirlNightSky.jpg;
-  #stylixImage = ../../wallpapers/Anime-Purple-eyes.png;
-  #stylixImage = ../../wallpapers/Rainnight.jpg;
-  #stylixImage = ../../wallpapers/zaney-wallpaper.jpg;
-  #stylixImage = ../../wallpapers/nix-wallpaper-stripes-logo.png;
-  #stylixImage = ../../wallpapers/beautifulmountainscape.jpg;
+  wallpaperUrl = "https://raw.githubusercontent.com/zhichaoh/catppuccin-wallpapers/main/landscapes/forrest.png";
+  wallpaperSha = "00qx3h60s92hmf09ik1s3984jym6li270201qqzs5x4yks7q6flc";
+
+  stylixImage = null; # so the old stuff wont break
 
   # Set Waybar
   #  Available Options:
