@@ -60,10 +60,6 @@ in {
   ];
   # Place Files Inside Home Directory
   home.file = {
-    "Pictures/Wallpapers" = {
-      source = ../../../wallpapers;
-      recursive = true;
-    };
     ".face.icon".source = ./face.jpg;
     ".config/face.jpg".source = ./face.jpg;
   };

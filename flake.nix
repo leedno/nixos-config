@@ -47,7 +47,7 @@
     ...
   } @ inputs: let
     system = "x86_64-linux";
-    host = "nvidia";
+    host = "main";
     profile = "main";
     username = "leon";
 
