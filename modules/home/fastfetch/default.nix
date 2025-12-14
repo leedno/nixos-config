@@ -31,7 +31,7 @@
         }
         {
           type = "command";
-          key = " ├  ZaneyOS ";
+          key = " ├  LeonOS ";
           keyColor = "31";
           text = "echo v$" + "{ZANEYOS_VERSION}";
         }

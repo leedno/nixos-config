@@ -3,8 +3,8 @@ pkgs.writeShellScriptBin "cheatsheets-parser" ''
     #!/usr/bin/env bash
     set -euo pipefail
 
-    # Default paths (ported to ZaneyOS repo location)
-    CHEATSHEETS_DIR="$HOME/zaneyos/cheatsheets"
+    # Default paths (ported to LeonOS repo location)
+    CHEATSHEETS_DIR="$HOME/leonos/cheatsheets"
 
     # Handle arguments
     MODE="''${1:-files}"

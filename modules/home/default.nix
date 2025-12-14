@@ -19,6 +19,10 @@
     then ./noctalia.nix
     else waybarChoice;
 in {
+  home.file."Pictures/wallpapers" = {
+    source = ../../wallpapers;
+    recursive = true;
+  };
   imports =
     [
       ./amfora.nix

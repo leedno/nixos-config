@@ -1,5 +1,5 @@
 {
-  description = "ZaneyOS";
+  description = "LeonOS";
 
   inputs = {
     home-manager = {

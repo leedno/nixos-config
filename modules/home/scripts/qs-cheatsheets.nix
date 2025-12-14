@@ -45,11 +45,11 @@ pkgs.writeShellScriptBin "qs-cheatsheets" ''
     done
 
     # Validate category (dynamically check if directory exists or is "root")
-    if [[ "$CATEGORY" != "root" && ! -d "$HOME/zaneyos/cheatsheets/$CATEGORY" ]]; then
+    if [[ "$CATEGORY" != "root" && ! -d "$HOME/leonos/cheatsheets/$CATEGORY" ]]; then
       echo "Error: Category directory '$CATEGORY' not found in cheatsheets/" >&2
       echo "Available categories:" >&2
       echo "  root" >&2
-      ls -1 "$HOME/zaneyos/cheatsheets/" | grep -E '^[a-z]' | head -10 >&2
+      ls -1 "$HOME/leonos/cheatsheets/" | grep -E '^[a-z]' | head -10 >&2
       exit 1
     fi
 
@@ -126,8 +126,8 @@ pkgs.writeShellScriptBin "qs-cheatsheets" ''
     done
 
     # Then dynamically discover all category directories
-    if [ -d "$HOME/zaneyos/cheatsheets" ]; then
-      for category_dir in "$HOME/zaneyos/cheatsheets"/*/; do
+    if [ -d "$HOME/leonos/cheatsheets" ]; then
+      for category_dir in "$HOME/leonos/cheatsheets"/*/; do
         if [ -d "$category_dir" ]; then
           category=$(basename "$category_dir")
           for lang in en es; do
@@ -263,9 +263,9 @@ pkgs.writeShellScriptBin "qs-cheatsheets" ''
       // Handle root directory files
       var filePath;
       if (selectedCategory === "root") {
-        filePath = "/home/dwilliams/zaneyos/cheatsheets/" + filename;
+        filePath = "/home/dwilliams/leonos/cheatsheets/" + filename;
       } else {
-        filePath = "/home/dwilliams/zaneyos/cheatsheets/" + selectedCategory + "/" + filename;
+        filePath = "/home/dwilliams/leonos/cheatsheets/" + selectedCategory + "/" + filename;
       }
 
       const xhr = new XMLHttpRequest();
