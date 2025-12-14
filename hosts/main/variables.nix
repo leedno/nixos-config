@@ -39,7 +39,7 @@
   barChoice = "noctalia";
 
   # Waybar Settings (used when barChoice = "waybar")
-  clock24h = false;
+  clock24h = true;
 
   # Program Options
   # Set Default Browser (google-chrome-stable for google-chrome)
@@ -78,10 +78,10 @@
   # The others much be commented out.
 
   # Default background
-  wallpaperUrl = "https://raw.githubusercontent.com/zhichaoh/catppuccin-wallpapers/main/landscapes/forrest.png";
-  wallpaperSha = "00qx3h60s92hmf09ik1s3984jym6li270201qqzs5x4yks7q6flc";
+  #wallpaperUrl = "https://raw.githubusercontent.com/zhichaoh/catppuccin-wallpapers/main/landscapes/forrest.png";
+  #wallpaperSha = "00qx3h60s92hmf09ik1s3984jym6li270201qqzs5x4yks7q6flc";
 
-  stylixImage = null; # so the old stuff wont break
+  stylixImage = ../../wallpapers/nix-wallpaper-stripes-logo.png;
 
   # Set Waybar
   #  Available Options:

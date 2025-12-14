@@ -6,6 +6,7 @@
     browser
     terminal
     ;
+
   # Noctalia-specific bindings (only included when barChoice == "noctalia")
   noctaliaBind =
     if barChoice == "noctalia"
@@ -17,12 +18,15 @@
       "$modifier ALT,P, Noctalia Settings, exec, noctalia-shell ipc call settings toggle"
       "$modifier SHIFT,comma, Noctalia Settings, exec, noctalia-shell ipc call settings toggle"
       "$modifier ALT,L, Noctalia Lock Screen, exec, noctalia-shell ipc call sessionMenu lockAndSuspend"
+
       "$modifier SHIFT,W, Noctalia Wallpaper, exec, noctalia-shell ipc call wallpaper toggle"
+
       "$modifier,X, Noctalia Power Menu, exec, noctalia-shell ipc call sessionMenu toggle"
       "$modifier,C, Noctalia Control Center, exec, noctalia-shell ipc call controlCenter toggle"
       "$modifier CTRL,R, Noctalia Screen Recorder, exec, noctalia-shell ipc call screenRecorder toggle"
     ]
     else [];
+
   # Rofi launcher bindings (only included when barChoice != "noctalia")
   rofiBind =
     if barChoice != "noctalia"
@@ -56,7 +60,10 @@ in {
         "$modifier SHIFT,K, Legacy Keybinds Menu, exec, list-keybinds"
         "$modifier SHIFT,D, Discord, exec, discord"
         "$modifier ALT,W, Web Search, exec, web-search"
-        "$modifier SHIFT,W, QS Wallpaper Setter, exec, qs-wallpapers-apply"
+
+        # "$modifier SHIFT,W, QS Wallpaper Setter, exec, qs-wallpapers-apply"
+
+        "$modifier CTRL,W, QS Wallpaper Setter, exec, qs-vid-wallpapers-apply"
         "$modifier SHIFT,N, Notification Reset, exec, swaync-client -rs"
         "$modifier,W, Web Browser, exec, ${browser}"
         "$modifier,Y, File Manager, exec, kitty -e yazi"

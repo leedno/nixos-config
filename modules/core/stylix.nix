@@ -5,16 +5,12 @@
 }: let
   # Import variables
   vars = import ../../hosts/${host}/variables.nix;
-
-  # Define the wallpaper via URL
-  wallpaper = pkgs.fetchurl {
-    url = vars.wallpaperUrl;
-    sha256 = vars.wallpaperSha;
-  };
 in {
   stylix = {
     enable = true;
-    image = wallpaper; # <--- Use the downloaded image
+
+    # Use the local path defined in variables.nix
+    image = vars.stylixImage;
 
     # Keep your settings (adjust these if your previous file had different fonts/cursor)
     polarity = "dark";
