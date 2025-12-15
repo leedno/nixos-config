@@ -12,8 +12,8 @@
   # Emable/disable bundled applications
   tmuxEnable = true;
   alacrittyEnable = false;
-  vscodeEnable = false;
-  antigravityEnable = false; # Google port of vscodium
+  vscodeEnable = true;
+  antigravityEnable = true; # Google port of vscodium
 
   # Python development tools are included by default
 
