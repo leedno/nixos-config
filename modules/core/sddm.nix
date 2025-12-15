@@ -4,6 +4,7 @@
   config,
   lib,
   host,
+  username,
   ...
 }: let
   foreground = config.stylix.base16Scheme.base00;
@@ -91,4 +92,9 @@ in {
     // lib.optionalAttrs (keyboardVariant != "") {XKB_DEFAULT_VARIANT = keyboardVariant;});
 
   environment.systemPackages = [sddm-astronaut];
+
+  systemd.tmpfiles.rules = [
+    "d /var/lib/AccountsService/icons 0775 root root -"
+    "L+ /var/lib/AccountsService/icons/${username} - - - - ${../home/hyprland/face.jpg}"
+  ];
 }
