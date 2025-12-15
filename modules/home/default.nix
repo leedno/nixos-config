@@ -3,21 +3,12 @@
   inherit
     (vars)
     alacrittyEnable
-    barChoice
-    ghosttyEnable
     tmuxEnable
-    waybarChoice
-    weztermEnable
     vscodeEnable
-    helixEnable
-    doomEmacsEnable
     antigravityEnable
     ;
   # Select bar module based on barChoice
-  barModule =
-    if barChoice == "noctalia"
-    then ./noctalia.nix
-    else waybarChoice;
+  barModule = ./noctalia.nix;
 in {
   home.file."Pictures/wallpapers" = {
     source = ../../wallpapers;
@@ -67,11 +58,6 @@ in {
       ./zsh
     ]
     ++ (
-      if helixEnable
-      then [./editors/evil-helix.nix]
-      else []
-    )
-    ++ (
       if vscodeEnable
       then [./editors/vscode.nix]
       else []
@@ -79,24 +65,6 @@ in {
     ++ (
       if antigravityEnable
       then [./editors/antigravity.nix]
-      else []
-    )
-    ++ (
-      if doomEmacsEnable
-      then [
-        ./editors/doom-emacs-install.nix
-        ./editors/doom-emacs.nix
-      ]
-      else []
-    )
-    ++ (
-      if weztermEnable
-      then [./terminals/wezterm.nix]
-      else []
-    )
-    ++ (
-      if ghosttyEnable
-      then [./terminals/ghostty.nix]
       else []
     )
     ++ (

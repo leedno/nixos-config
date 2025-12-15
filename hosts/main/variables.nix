@@ -12,14 +12,8 @@
   # Emable/disable bundled applications
   tmuxEnable = true;
   alacrittyEnable = false;
-  weztermEnable = false;
-  ghosttyEnable = false;
   vscodeEnable = false;
   antigravityEnable = false; # Google port of vscodium
-  # Note: This is evil-helix with VIM keybindings by default
-  helixEnable = false;
-  #To install: Enable here, zcli rebuild, then run zcli doom install
-  doomEmacsEnable = false;
 
   # Python development tools are included by default
 
@@ -38,9 +32,6 @@
   # Choose between noctalia or waybar
   barChoice = "noctalia";
 
-  # Waybar Settings (used when barChoice = "waybar")
-  clock24h = true;
-
   # Program Options
   # Set Default Browser (google-chrome-stable for google-chrome)
   # This does NOT install your browser
@@ -49,8 +40,8 @@
   browser = "brave";
 
   # Available Options:
-  # Kitty, ghostty, wezterm, aalacrity
-  # Note: kitty, wezterm, alacritty have to be enabled in `variables.nix`
+  # Kitty, Alacritty
+  # Note: kitty, alacritty have to be enabled in `variables.nix`
   # Setting it here does not enable it. Kitty is installed by default
   terminal = "kitty"; # Set Default System Terminal
 
@@ -82,30 +73,6 @@
   #wallpaperSha = "00qx3h60s92hmf09ik1s3984jym6li270201qqzs5x4yks7q6flc";
 
   stylixImage = ../../wallpapers/nix-wallpaper-stripes-logo.png;
-
-  # Set Waybar
-  #  Available Options:
-  waybarChoice = ../../modules/home/waybar/waybar-curved.nix;
-  #waybarChoice = ../../modules/home/waybar/waybar-ddubs.nix;
-  #waybarChoice = ../../modules/home/waybar/waybar-ddubs-2.nix;
-  #waybarChoice = ../../modules/home/waybar/waybar-simple.nix;
-  #waybarChoice = ../../modules/home/waybar/waybar-dwm.nix;
-  #waybarChoice = ../../modules/home/waybar/waybar-dwm-2.nix;
-  #waybarChoice = ../../modules/home/waybar/waybar-nekodyke.nix;
-  #waybarChoice = ../../modules/home/waybar/waybar-jerry.nix;
-  #waybarChoice = ../../modules/home/waybar/waybar-TheBlackDon.nix;
-  #waybarChoice = ../../modules/home/waybar/waybar-tony.nix;
-  #waybarChoice = ../../modules/home/waybar/waybar-ddubsos-v1.nix;
-  #waybarChoice = ../../modules/home/waybar/waybar-mecha.nix;
-  #waybarChoice = ../../modules/home/waybar/waybar-jak-catppuccin.nix;
-  #waybarChoice = ../../modules/home/waybar/waybar-jak-ml4w-modern.nix;
-  #waybarChoice = ../../modules/home/waybar/waybar-jak-oglo-simple.nix;
-  #waybarChoice = ../../modules/home/waybar/waybar-jwt-catppuccin.nix;
-  #waybarChoice = ../../modules/home/waybar/waybar-jwt-transparent.nix;
-  #waybarChoice = ../../modules/home/waybar/waybar-jwt-ultradark.nix;
-  #waybarChoice = ../../modules/home/waybar/waybar-pctrade-catppuccin.nix;
-  #waybarChoice = ../../modules/home/waybar/waybar-mangowc-jak-catppuccin.nix;
-  #waybarChoice = ../../modules/home/waybar/waybar-old-ddubsos.nix;
 
   # Set Animation style
   # Available options are:
