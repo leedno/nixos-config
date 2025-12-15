@@ -10,6 +10,7 @@
   keyboardLayout = vars.keyboardLayout or "us";
   keyboardVariant = vars.keyboardVariant or "";
   stylixImage = vars.stylixImage or null;
+  isLaptop = vars.isLaptop or false;
 
   # Treat only known US-based variants as implying layout = "us".
   usVariants = ["dvorak" "colemak" "workman" "intl" "us-intl" "altgr-intl"];
@@ -75,6 +76,21 @@ in {
       enable = true;
     };
     settings = {
+      workspace = lib.mkIf (!isLaptop) [
+        # Workspaces 1-5 for the main monitor (DVI-D-1)
+        "1, monitor:DVI-D-1"
+        "2, monitor:DVI-D-1"
+        "3, monitor:DVI-D-1"
+        "4, monitor:DVI-D-1"
+        "5, monitor:DVI-D-1"
+
+        # Workspaces 6-10 for the secondary monitor (HDMI-A-1)
+        "6, monitor:HDMI-A-1"
+        "7, monitor:HDMI-A-1"
+        "8, monitor:HDMI-A-1"
+        "9, monitor:HDMI-A-1"
+        "10, monitor:HDMI-A-1"
+      ];
       input =
         {
           kb_layout = hyprKbLayout;

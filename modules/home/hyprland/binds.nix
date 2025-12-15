@@ -32,8 +32,8 @@ in {
         # ============= TERMINALS =============
         "$modifier,Return, Terminal, exec, ${terminal}"
         # ============= APPLICATION LAUNCHERS =============
-        "$modifier,K, Keybinds Search Tool, exec, qs-keybinds"
-        "$modifier SHIFT,K, Legacy Keybinds Menu, exec, list-keybinds"
+        "$modifier,Period, Keybinds Search Tool, exec, qs-keybinds"
+        "$modifier SHIFT,Period, Legacy Keybinds Menu, exec, list-keybinds"
         "$modifier SHIFT,D, Discord, exec, discord"
         "$modifier ALT,W, Web Search, exec, web-search"
 

@@ -45,6 +45,9 @@
   # Setting it here does not enable it. Kitty is installed by default
   terminal = "kitty"; # Set Default System Terminal
 
+  # controls stuff like battery icon
+  isLaptop = false;
+
   keyboardLayout = "se";
   keyboardVariant = "";
   consoleKeyMap = "us";

@@ -12,6 +12,7 @@ in {
     ./fonts.nix
     ./hardware.nix
     ./network.nix
+    ./mullvad.nix
     ./nfs.nix
     ./nh.nix
     ./quickshell.nix
