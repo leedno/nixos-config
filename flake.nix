@@ -57,8 +57,8 @@
         specialArgs = {
           inherit inputs;
           inherit username;
-          host = hostName; # <--- Pass the dynamic hostName
-          profile = gpuProfile; # <--- Pass the dynamic profile
+          host = hostName;
+          profile = gpuProfile;
         };
         modules = [
           ./modules/core/overlays.nix

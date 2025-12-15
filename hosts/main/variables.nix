@@ -3,7 +3,7 @@
   gitUsername = "leedno";
   gitEmail = "leon.nordell04@gmail.com";
 
-  # Set Displau Manager
+  # Set Display Manager
   # `tui` for Text login
   # `sddm` for graphical GUI (default)
   # SDDM background is set with stylixImage
@@ -12,10 +12,10 @@
   # Emable/disable bundled applications
   tmuxEnable = true;
   alacrittyEnable = false;
-  vscodeEnable = true;
-  antigravityEnable = true; # Google port of vscodium
-
-  # Python development tools are included by default
+  vscodeEnable = false;
+  antigravityEnable = false;
+  obsEnable = false;
+  zenEnable = false;
 
   # Hyprland Settings
   # Examples:

@@ -3,7 +3,7 @@
   gitUsername = "leedno";
   gitEmail = "leon.nordell04@gmail.com";
 
-  # Set Displau Manager
+  # Set Display Manager
   # `tui` for Text login
   # `sddm` for graphical GUI (default)
   # SDDM background is set with stylixImage
@@ -13,7 +13,9 @@
   tmuxEnable = true;
   alacrittyEnable = false;
   vscodeEnable = false;
-  antigravityEnable = false; # Google port of vscodium
+  antigravityEnable = false;
+  obsEnable = false;
+  zenEnable = false;
 
   # Python development tools are included by default
 

@@ -1,4 +1,8 @@
-{host, ...}: let
+{
+  host,
+  pkgs,
+  ...
+}: let
   vars = import ../../hosts/${host}/variables.nix;
   inherit
     (vars)
@@ -6,8 +10,10 @@
     tmuxEnable
     vscodeEnable
     antigravityEnable
+    obsEnable
+    zenEnable
     ;
-  # Select bar module based on barChoice
+
   barModule = ./noctalia.nix;
 in {
   home.file."Pictures/wallpapers" = {
@@ -36,7 +42,6 @@ in {
       ./hyprland
       ./terminals/kitty.nix
       ./cli/lazygit.nix
-      ./obs-studio.nix
       #./editors/nvf.nix
       ./editors/nixvim.nix
       ./editors/nano.nix
@@ -53,7 +58,6 @@ in {
       ./wlogout
       ./xdg.nix
       ./yazi
-      ./zen-browser.nix
       ./zoxide.nix
       ./zsh
     ]
@@ -68,6 +72,16 @@ in {
       else []
     )
     ++ (
+      if obsEnable
+      then [./obs-studio.nix]
+      else []
+    )
+    ++ (
+      if zenEnable
+      then [./zen-browser.nix]
+      else []
+    )
+    ++ (
       if tmuxEnable
       then [./terminals/tmux.nix]
       else []
@@ -77,4 +91,9 @@ in {
       then [./terminals/alacritty.nix]
       else []
     );
+
+  home.sessionVariables = {
+    EDITOR = "${pkgs.neovim}/bin/nvim";
+    VISUAL = "${pkgs.neovim}/bin/nvim";
+  };
 }
