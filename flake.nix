@@ -47,29 +47,32 @@
     ...
   } @ inputs: let
     system = "x86_64-linux";
-    host = "main";
-    profile = "main";
-    username = "leon";
+    username = "leon"; # Helper variable
 
-    # Deduplicate nixosConfigurations while preserving the top-level 'profile'
-    mkNixosConfig = gpuProfile:
+    # Function to build a config
+    # We now pass 'hostName' and 'gpuProfile' as arguments
+    mkNixosConfig = hostName: gpuProfile:
       nixpkgs.lib.nixosSystem {
         inherit system;
         specialArgs = {
           inherit inputs;
           inherit username;
-          inherit host;
-          inherit profile; # keep using the let-bound profile for modules/scripts
+          host = hostName; # <--- Pass the dynamic hostName
+          profile = gpuProfile; # <--- Pass the dynamic profile
         };
         modules = [
           ./modules/core/overlays.nix
-          ./profiles/${gpuProfile}
+          ./profiles/${gpuProfile} # Loads profiles/main or profiles/laptop
           nix-flatpak.nixosModules.nix-flatpak
         ];
       };
   in {
     nixosConfigurations = {
-      main = mkNixosConfig "main";
+      # Your existing Desktop
+      main = mkNixosConfig "main" "main";
+
+      # Your new Laptop
+      laptop = mkNixosConfig "laptop" "laptop";
     };
 
     formatter.x86_64-linux = inputs.alejandra.packages.x86_64-linux.default;
