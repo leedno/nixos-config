@@ -4,7 +4,7 @@ pkgs.writeShellScriptBin "qs-vid-wallpapers" ''
     set -euo pipefail
 
     # Configurable defaults via env
-    DIR="''${WALL_DIR:-$HOME/Pictures/wallpapers}"
+    DIR="''${WALL_DIR:-$HOME/Pictures/Wallpapers}"
     CACHE="''${VID_WALL_CACHE_DIR:-$HOME/.cache/vidthumbs}"
     SIZE="''${VID_WALL_THUMB_SIZE:-200}"
 
@@ -13,7 +13,7 @@ pkgs.writeShellScriptBin "qs-vid-wallpapers" ''
   Usage: qs-vid-wallpapers [options]
 
   Options:
-    -d DIR   Video wallpapers directory (default: $HOME/Pictures/wallpapers)
+    -d DIR   Video wallpapers directory (default: $HOME/Pictures/Wallpapers)
     -t DIR   Thumbnail cache directory (default: $HOME/.cache/vidthumbs)
     -s N     Thumbnail size in px (square) (default: 200)
     -h       Show this help

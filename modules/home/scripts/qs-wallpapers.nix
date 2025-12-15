@@ -5,7 +5,7 @@ pkgs.writeShellScriptBin "qs-wallpapers" ''
 
 
     # Configurable defaults via env
-    DIR="''${WALL_DIR:-$HOME/Pictures/wallpapers}"
+    DIR="''${WALL_DIR:-$HOME/Pictures/Wallpapers}"
     CACHE="''${WALL_CACHE_DIR:-$HOME/.cache/wallthumbs}"
     SIZE="''${WALL_THUMB_SIZE:-200}"
 
@@ -14,7 +14,7 @@ pkgs.writeShellScriptBin "qs-wallpapers" ''
   Usage: qs-wallpapers [options]
 
   Options:
-    -d DIR   Wallpapers directory (default: $HOME/Pictures/wallpapers)
+    -d DIR   Wallpapers directory (default: $HOME/Pictures/Wallpapers)
     -t DIR   Thumbnail cache directory (default: $HOME/.cache/wallthumbs)
     -s N     Thumbnail size in px (square) (default: 200)
     -h       Show this help

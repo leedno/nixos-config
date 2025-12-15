@@ -16,7 +16,7 @@
 
   barModule = ./noctalia.nix;
 in {
-  home.file."Pictures/wallpapers" = {
+  home.file."Pictures/Wallpapers" = {
     source = ../../wallpapers;
     recursive = true;
   };
