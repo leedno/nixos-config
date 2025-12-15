@@ -8,6 +8,13 @@
     flatpak = {
       enable = true;
 
+      remotes = [
+        {
+          name = "flathub";
+          location = "https://dl.flathub.org/repo/flathub.flatpakrepo";
+        }
+      ];
+
       # List the Flatpak applications you want to install
       # Use the official Flatpak application ID (e.g., from flathub.org)
       # Examples:

@@ -1,15 +1,6 @@
-# profiles/laptop/default.nix
-{host, ...}: {
+{...}: {
   imports = [
-    ../../hosts/${host}
-    ../../modules/drivers
-    ../../modules/core
+    ./hardware.nix
+    ../../modules/shared-packages.nix
   ];
-
-  # Enable GPU Drivers - Setting for AMD Integrated Graphics
-  drivers.amdgpu.enable = true;
-  drivers.nvidia.enable = false;
-  drivers.nvidia-prime.enable = false;
-  drivers.intel.enable = false;
-  vm.guest-services.enable = false;
 }
