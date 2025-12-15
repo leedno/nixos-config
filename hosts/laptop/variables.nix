@@ -74,7 +74,7 @@
   #wallpaperUrl = "https://raw.githubusercontent.com/zhichaoh/catppuccin-wallpapers/main/landscapes/forrest.png";
   #wallpaperSha = "00qx3h60s92hmf09ik1s3984jym6li270201qqzs5x4yks7q6flc";
 
-  stylixImage = ../../wallpapers/nix-wallpaper-stripes-logo.png;
+  stylixImage = ../../wallpapers/dark-whale.png;
 
   # Set Animation style
   # Available options are:
