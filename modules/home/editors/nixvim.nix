@@ -320,6 +320,7 @@
 
     # Diagnostic UI and notify background tweaks
     extraConfigLua = ''
+
       -- Inline diagnostics (virtual text) similar to NVF virtual_lines
       vim.diagnostic.config({
         virtual_text = { prefix = "●", spacing = 2 },
