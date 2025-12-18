@@ -100,7 +100,13 @@ in {
         "fullscreen, tag:games*"
       ];
       windowrulev2 = [
-        # qs-wallpapers styling via compositor
+        # 1. Keeps video filling the window (Fake Fullscreen)
+        "fullscreenstate 0 2, class:(brave-browser), title:(.*YouTube.*)"
+        # 2. Prevents the window from jumping to actual monitor-wide fullscreen
+        "suppressevent fullscreen, class:(brave-browser), title:(.*YouTube.*)"
+        # 3. Prevents the video from breaking when you move or adjust the window
+        "syncfullscreen 0, class:(brave-browser), title:(.*YouTube.*)"
+
         "noborder, class:^(org\\.qt-project\\.qml)$, title:^(Wallpapers)$"
         "noshadow, class:^(org\\.qt-project\\.qml)$, title:^(Wallpapers)$"
         "noblur, class:^(org\\.qt-project\\.qml)$, title:^(Wallpapers)$"
