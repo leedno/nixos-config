@@ -13,7 +13,7 @@ in {
         "noblur, class:^(\bresolve\b)$, xwayland:1" # Window rule for just resolve
         "tag +file-manager, class:^([Tt]hunar|org.gnome.Nautilus|[Pp]cmanfm-qt)$"
         "tag +terminal, class:^(com.mitchellh.ghostty|org.wezfurlong.wezterm|Alacritty|kitty|kitty-dropterm)$"
-        "tag +browser, class:^(Brave-browser(-beta|-dev|-unstable)?)$"
+        "tag +browser, class:^(brave-browser(-beta|-dev|-unstable)?)$"
         "tag +browser, class:^([Ff]irefox|org.mozilla.firefox|[Ff]irefox-esr)$"
         "tag +browser, class:^([Gg]oogle-chrome(-beta|-dev|-unstable)?)$"
         "tag +browser, class:^([Tt]horium-browser|[Cc]achy-browser)$"
@@ -102,9 +102,9 @@ in {
       windowrulev2 = [
         # 1. Keeps video filling the window (Fake Fullscreen)
         "fullscreenstate 0 2, class:(brave-browser), title:(.*YouTube.*)"
-        # 2. Prevents the window from jumping to actual monitor-wide fullscreen
-        "suppressevent fullscreen, class:(brave-browser), title:(.*YouTube.*)"
-        # 3. Prevents the video from breaking when you move or adjust the window
+        # 2. Prevents window from jumping to monitor-wide fullscreen OR resetting when moved
+        "suppressevent maximize fullscreen, class:(brave-browser), title:(.*YouTube.*)"
+        # 3. Prevents video from breaking when moving/resizing
         "syncfullscreen 0, class:(brave-browser), title:(.*YouTube.*)"
 
         "noborder, class:^(org\\.qt-project\\.qml)$, title:^(Wallpapers)$"

@@ -1,0 +1,13 @@
+# .sops.yaml
+keys:
+  - &user_leon  age1mmwx4ecvk3h4w04hs6quxy4hneq542vkvze6ghjyl6dqn4gnqp0qnkx2ut # PERSONAL KEY
+  - &host_laptop  age1al4hydmnwdgqeg0etc724ghlupuklqnuws28myg3ehyc6ku5qcfs02en44 # LAPTOP HOST KEY
+  #- &host_main    # MAIN HOST KEY
+
+creation_rules:
+  - path_regex: secrets/[^/]+\.(yaml|json|env|ini)$
+    key_groups:
+      - age:
+          - *user_leon
+          - *host_laptop
+          #- *host_main

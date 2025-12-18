@@ -2,6 +2,7 @@
   profile,
   pkgs,
   lib,
+  config,
   ...
 }: {
   programs.zsh = {
@@ -36,11 +37,19 @@
       }
     ];
 
+    # MERGED BLOCK: Contains both your API key logic AND your keybinds
     initContent = ''
+      # 1. Export Gemini Key from Sops for Avante.nvim
+      if [ -f "${config.sops.secrets.gemini_api_key.path}" ]; then
+        export GEMINI_API_KEY=$(cat "${config.sops.secrets.gemini_api_key.path}" | tr -d '\n')
+      fi
+
+      # 2. Keybindings and Personal Config
       bindkey "\eh" backward-word
       bindkey "\ej" down-line-or-history
       bindkey "\ek" up-line-or-history
       bindkey "\el" forward-word
+
       if [ -f $HOME/.zshrc-personal ]; then
         source $HOME/.zshrc-personal
       fi

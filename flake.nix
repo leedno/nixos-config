@@ -36,6 +36,11 @@
       url = "github:kamadorueda/alejandra";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    sops-nix = {
+      url = "github:Mic92/sops-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = {
@@ -64,6 +69,7 @@
           ./modules/core/overlays.nix
           ./profiles/${gpuProfile} # Loads profiles/main or profiles/laptop
           nix-flatpak.nixosModules.nix-flatpak
+          inputs.sops-nix.nixosModules.sops
         ];
       };
   in {

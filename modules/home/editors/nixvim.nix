@@ -66,6 +66,43 @@
         enable = true;
       };
 
+      # Add Avante.nvim
+      avante = {
+        enable = true;
+        settings = {
+          provider = "gemini";
+          # The warning wants 'providers', not 'vendors'
+          providers = {
+            gemini = {
+              model = "gemini-flash-latest";
+              temperature = 0;
+              max_tokens = 4096;
+            };
+          };
+        };
+      };
+
+      # Avante dependencies (required for the UI)
+      dressing.enable = true;
+      nui.enable = true;
+      render-markdown = {
+        enable = true;
+        settings = {
+          # 1. Attach to Avante
+          file_types = ["markdown" "Avante"];
+          # 2. Make code blocks look like code
+          code.style = "language";
+          # 3. Use those "cool icons" for headers
+          heading = {
+            enabled = true;
+            signs = ["󰉫 " "󰉬 " "󰉭 " "󰉮 " "󰉯 " "󰉰 "];
+          };
+        };
+      };
+
+      # Optional: Web search integration if you want it to search docs
+      copilot-chat.enable = false; # Ensure conflicting chat plugins are disabled if you prefer Avante
+
       # Fuzzy finder
       telescope.enable = true;
 
