@@ -333,6 +333,7 @@
     extraPackages = with pkgs; [
       ripgrep
       fd
+      sops
       bat
       # Wayland clipboard provider used by Neovim for system clipboard access
       wl-clipboard

@@ -2,7 +2,7 @@
 keys:
   - &user_leon  age1mmwx4ecvk3h4w04hs6quxy4hneq542vkvze6ghjyl6dqn4gnqp0qnkx2ut # PERSONAL KEY
   - &host_laptop  age1al4hydmnwdgqeg0etc724ghlupuklqnuws28myg3ehyc6ku5qcfs02en44 # LAPTOP HOST KEY
-  #- &host_main    # MAIN HOST KEY
+  - &host_main  age10xvdhvvs09tkn7gxcf88eq6vumnuqvcxzqf8mx2maey7dzx54f6qw6gt7y # MAIN HOST KEY
 
 creation_rules:
   - path_regex: secrets/[^/]+\.(yaml|json|env|ini)$
@@ -10,4 +10,4 @@ creation_rules:
       - age:
           - *user_leon
           - *host_laptop
-          #- *host_main
+          - *host_main
