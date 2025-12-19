@@ -359,6 +359,18 @@
     # Diagnostic UI and notify background tweaks
     extraConfigLua = ''
 
+      -- Read Gemini API Key from the system secret
+      local gemini_key_path = "/run/secrets/gemini_api_key"
+      local file = io.open(gemini_key_path, "r")
+      if file then
+        local key = file:read("*a")
+        -- Clean up whitespace/newlines
+        key = key:gsub("%s+", "")
+        file:close()
+        -- Set the environment variable for Avante
+        vim.env.GEMINI_API_KEY = key
+      end
+
       -- Inline diagnostics (virtual text) similar to NVF virtual_lines
       vim.diagnostic.config({
         virtual_text = { prefix = "●", spacing = 2 },

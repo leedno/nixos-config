@@ -37,11 +37,10 @@
       }
     ];
 
-    # MERGED BLOCK: Contains both your API key logic AND your keybinds
-    initContent = ''
-      # 1. Export Gemini Key from Sops for Avante.nvim
-      if [ -f "${config.sops.secrets.gemini_api_key.path}" ]; then
-        export GEMINI_API_KEY=$(cat "${config.sops.secrets.gemini_api_key.path}" | tr -d '\n')
+    initExtra = ''
+      # 1. Export Gemini Key from the system secret file
+      if [ -f "/run/secrets/gemini_api_key" ]; then
+        export GEMINI_API_KEY=$(cat "/run/secrets/gemini_api_key" | tr -d '\n')
       fi
 
       # 2. Keybindings and Personal Config

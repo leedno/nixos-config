@@ -18,6 +18,18 @@
     ./hardware-configuration.nix
   ];
 
+  sops = {
+    defaultSopsFile = ./secrets/gemini.yaml;
+    defaultSopsFormat = "yaml";
+
+    # host SSH key for decryption
+    age.sshKeyPaths = ["/etc/ssh/ssh_host_ed25519_key"];
+
+    secrets.gemini_api_key = {
+      owner = "leon"; # give permission to user
+    };
+  };
+
   # Use the systemd-boot EFI boot loader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
