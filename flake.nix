@@ -74,10 +74,10 @@
       };
   in {
     nixosConfigurations = {
-      # Your existing Desktop
-      main = mkNixosConfig "main" "main";
+      # My Desktop
+      desktop = mkNixosConfig "desktop" "desktop";
 
-      # Your new Laptop
+      # My Laptop
       laptop = mkNixosConfig "laptop" "laptop";
     };
 
