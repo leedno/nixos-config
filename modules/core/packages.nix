@@ -1,28 +1,52 @@
 {
   pkgs,
+  lib,
   host,
   ...
 }: let
   vars = import ../../hosts/${host}/variables.nix;
   inherit (vars) barChoice;
-  # Noctalia-specific packages
+
+  # Noctalia-specific packages (Matugen & launcher)
   noctaliaPkgs =
     if barChoice == "noctalia"
     then
       with pkgs; [
-        matugen # color palette generator needed for noctalia-shell
-        app2unit # launcher for noctalia-shell
+        matugen
+        app2unit
       ]
     else [];
 in {
+  # ---------------------------------------------------------------------------
+  #  Nixpkgs Configuration (Licenses)
+  # ---------------------------------------------------------------------------
+  nixpkgs.config = {
+    allowUnfree = true;
+    allowUnfreePredicate = pkg:
+      builtins.elem (lib.getName pkg) [
+        "codeium"
+        "windsurf"
+        "discord"
+        "discord-canary"
+        "steam"
+        "steam-original"
+        "steam-run"
+        "warp-terminal"
+        # Add other unfree packages here if needed
+      ];
+  };
+
+  # ---------------------------------------------------------------------------
+  #  System Programs & Services
+  # ---------------------------------------------------------------------------
   programs = {
     neovim = {
       enable = true;
       defaultEditor = true;
     };
-    firefox.enable = false; # Firefox is not installed by default
+    firefox.enable = false;
     hyprland = {
-      enable = true; # set this so desktop file is created
+      enable = true;
       withUWSM = false;
     };
     dconf.enable = true;
@@ -37,69 +61,97 @@ in {
     };
   };
 
-  nixpkgs.config.allowUnfree = true;
-
+  # ---------------------------------------------------------------------------
+  #  System Packages
+  # ---------------------------------------------------------------------------
   environment.systemPackages = with pkgs;
     noctaliaPkgs
     ++ [
-      alejandra # nix formatter
-      amfora # Fancy Terminal Browser For Gemini Protocol
-      appimage-run # Needed For AppImage Support
-      brave # Brave Browser
-      brightnessctl # For Screen Brightness Control
-      cliphist # Clipboard manager using rofi menu
-      cmatrix # Matrix Movie Effect In Terminal
-      cowsay # Great Fun Terminal Program
-      discord # Stable client
-      discord-canary # beta  client
-      docker-compose # Allows Controlling Docker From A Single File
-      duf # Utility For Viewing Disk Usage In Terminal
-      dysk # Disk space util nice formattting
-      eza # Beautiful ls Replacement
-      ffmpeg # Terminal Video / Audio Editing
-      file-roller # Archive Manager
-      gedit # Simple Graphical Text Editor
-      gemini-cli # CLI AI client ONLY (optional)
-      gimp # Great Photo Editor
-      gpu-screen-recorder # needed for nnoctalia-shell
-      power-profiles-daemon # needed for noctalia-shell power cycle
-      mesa-demos # needed for inxi diag util
-      tuigreet # The Login Manager (Sometimes Referred To As Display Manager)
-      htop # Simple Terminal Based System Monitor
-      eog # For Image Viewing
-      inxi # CLI System Information Tool
-      killall # For Killing All Instances Of Programs
-      libnotify # For Notifications
-      lm_sensors # Used For Getting Hardware Temps
-      lolcat # Add Colors To Your Terminal Command Output
-      lshw # Detailed Hardware Information
-      mdcat # CLI markdown parser
-      mpv # Incredible Video Player
-      ncdu # Disk Usage Analyzer With Ncurses Interface
-      nixfmt-rfc-style # Nix Formatter
-      nwg-displays # configure monitor configs via GUI
-      nwg-drawer # Application launcher for wayland
-      nwg-menu # App menu for waybar
-      onefetch # provides zsaneyos build info on current system
-      pandoc # format MD to HTML for cheatsheet parser
-      pavucontrol # For Editing Audio Levels & Devices
-      pciutils # Collection Of Tools For Inspecting PCI Devices
-      picard # For Changing Music Metadata & Getting Cover Art
-      pkg-config # Wrapper Script For Allowing Packages To Get Info On Others
-      playerctl # Allows Changing Media Volume Through Scripts
-      rhythmbox # audio player
-      ripgrep # Improved Grep
-      socat # Needed For Screenshots
-      unrar # Tool For Handling .rar Files
-      unzip # Tool For Handling .zip Files
-      usbutils # Good Tools For USB Devices
-      upower # noctalia shell battery
-      uwsm # Universal Wayland Session Manager (optional must be enabled)
-      v4l-utils # Used For Things Like OBS Virtual Camera
-      warp-terminal # Terminal with AI support build in
-      waypaper # Change wallpaper
-      wget # Tool For Fetching Files With Links
-      ytmdl # Tool For Downloading Audio From YouTube
-      python3 # Python 3 programming language
+      # --- System Utilities ---
+      wget
+      unzip
+      unrar
+      file-roller
+      killall
+      usbutils
+      pciutils
+      lm_sensors
+      lshw
+      inxi
+      mesa-demos
+      libnotify
+      power-profiles-daemon
+      upower
+      uwsm # Universal Wayland Session Manager
+      gpu-screen-recorder
+      brightnessctl
+      cliphist
+      socat
+      v4l-utils
+      appimage-run
+
+      # --- Disk & Monitoring ---
+      htop
+      btop
+      bottom
+      duf
+      dysk
+      ncdu
+
+      # --- CLI Tools (Better Shell Experience) ---
+      eza # ls replacement
+      bat # cat replacement
+      ripgrep # grep replacement
+      fd # find replacement
+      fzf # fuzzy finder
+      zoxide # cd replacement
+      tldr # help replacement
+      mdcat # markdown viewer
+      pandoc
+
+      # --- Development & Git ---
+      git
+      gh
+      lazygit
+      sops # Secrets management (ADDED)
+      alejandra # Nix formatter
+      nixfmt-rfc-style
+      python3
+      docker-compose
+      pkg-config
+      gemini-cli # (Optional)
+
+      # --- GUI Applications ---
+      brave
+      warp-terminal
+      discord
+      discord-canary
+      gimp
+      eog # Image viewer
+      gedit # Simple text editor
+      amfora # Gemini browser
+
+      # --- Media & Audio ---
+      ffmpeg
+      mpv
+      rhythmbox
+      pavucontrol
+      playerctl
+      picard
+      ytmdl
+      cava
+
+      # --- Desktop / Theming ---
+      waypaper
+      nwg-displays
+      nwg-drawer
+      nwg-menu
+      tuigreet
+
+      # --- Fun / Misc ---
+      cowsay
+      lolcat
+      cmatrix
+      onefetch
     ];
 }

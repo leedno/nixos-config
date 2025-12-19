@@ -6,5 +6,4 @@ result
 .direnv
 .vscode
 
-secrets.nix
 private/

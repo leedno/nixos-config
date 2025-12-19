@@ -26,6 +26,7 @@ in {
     )
     ./security.nix
     ./services.nix
+    ./secrets.nix
     ./steam.nix
     ./stylix.nix
     ./syncthing.nix
