@@ -37,7 +37,7 @@
       }
     ];
 
-    initExtra = ''
+    initContent = ''
       # 1. Export Gemini Key from the system secret file
       if [ -f "/run/secrets/gemini_api_key" ]; then
         export GEMINI_API_KEY=$(cat "/run/secrets/gemini_api_key" | tr -d '\n')
