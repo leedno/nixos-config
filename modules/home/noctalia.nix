@@ -1,7 +1,6 @@
 {
-  config,
-  pkgs,
   inputs,
+  pkgs,
   lib,
   ...
 }: let
@@ -9,13 +8,19 @@
   noctaliaPath = inputs.noctalia.packages.${system}.default;
   configDir = "${noctaliaPath}/share/noctalia-shell";
 in {
-  # Install the Noctalia package for this user (CLI, assets, etc.)
-  home.packages = [
-    noctaliaPath
-  ];
+  # 1. Install the package manually
+  home.packages = [noctaliaPath];
 
-  # Seed the Noctalia QuickShell shell code into ~/.config/quickshell/noctalia-shell
-  # once, then leave it writable so the GUI and the user can tweak it.
+  # 2. Configure Settings declaratively
+  # This writes the settings file directly.
+  # NOTE: This makes ~/.config/noctalia/settings.json read-only.
+  xdg.configFile."noctalia/settings.json".text = builtins.toJSON {
+    dock = {
+      enabled = false;
+    };
+  };
+
+  # 3. Seed the shell code (Keep this as it was)
   home.activation.seedNoctaliaShellCode = lib.hm.dag.entryAfter ["writeBoundary"] ''
     set -eu
     DEST="$HOME/.config/quickshell/noctalia-shell"
