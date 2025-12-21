@@ -42,8 +42,8 @@ in {
       ./hyprland
       ./terminals/kitty.nix
       ./cli/lazygit.nix
-      #./editors/nvf.nix
-      ./editors/nixvim.nix
+      ./editors/nvf.nix
+      #./editors/nixvim.nix
       ./editors/nano.nix
       ./rofi
       ./qt.nix

@@ -9,6 +9,17 @@
     enable = true;
 
     settings.vim = {
+      assistant.avante-nvim = {
+        enable = true;
+        setupOpts = {
+          provider = "gemini";
+          gemini = {
+            model = "gemini-flash-latest";
+            max_tokens = 4096;
+          };
+        };
+      };
+
       lsp.enable = true;
       vimAlias = true;
       viAlias = true;
@@ -226,18 +237,6 @@
       };
 
       luaConfigPost = ''
-        -- Nix LSP (nil) configuration for auto-eval-inputs
-        local lspconfig = require('lspconfig')
-        lspconfig.nil_ls.setup({
-          settings = {
-            ['nil'] = {
-              nix = {
-                auto_eval_inputs = true,
-              },
-            },
-          },
-        })
-
         -- Auto-update programming wordlist on first startup
         vim.api.nvim_create_autocmd("VimEnter", {
           callback = function()
