@@ -48,6 +48,11 @@
             action = "<CMD>Neotree toggle<CR>";
             silent = false;
           };
+          # Window Navigation
+          "<C-h>" = {action = "<C-w>h";}; # Focus left
+          "<C-j>" = {action = "<C-w>j";}; # Focus down
+          "<C-k>" = {action = "<C-w>k";}; # Focus up
+          "<C-l>" = {action = "<C-w>l";}; # Focus right
         };
       };
 
