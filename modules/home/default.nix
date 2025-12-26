@@ -20,6 +20,10 @@ in {
     source = ../../wallpapers;
     recursive = true;
   };
+
+  home.file.".face".source = ./hyprland/face.jpg;
+  home.file.".face.icon".source = ./hyprland/face.jpg;
+
   imports =
     [
       ./amfora.nix

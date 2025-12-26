@@ -13,5 +13,10 @@
     bluetooth.enable = true;
     bluetooth.powerOnBoot = true;
   };
+  services.libinput.enable = true;
+  services.udev.packages = [pkgs.via];
+  services.udev.extraRules = ''
+    SUBSYSTEM=="hidraw", ATTRS{idVendor}=="342d", ATTRS{idProduct}=="e4c2", MODE="0666", TAG+="uaccess", TAG+="udev-acl"
+  '';
   local.hardware-clock.enable = false;
 }

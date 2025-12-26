@@ -4,19 +4,24 @@
   ...
 }: {
   # 1. Enable the Mullvad systemd service
-  # This sets up the Mullvad daemon that manages the VPN connection and firewall.
   services.mullvad-vpn.enable = true;
 
-  # 2. Install the Mullvad GUI application for easy management
-  # This makes the Mullvad app available in your application launcher.
+  # 2. Install the Mullvad GUI application
   environment.systemPackages = [
     pkgs.mullvad-vpn
   ];
 
-  # Optional: Configure the daemon package
-  # services.mullvad-vpn.package = pkgs.mullvad-vpn;
-
-  # Optional: Enable systemd-resolved for better DNS integration
-  # (Mullvad often works better when this is enabled)
+  # 3. Enable systemd-resolved for better DNS integration
   services.resolved.enable = true;
+
+  # 4. Automatically enable VPN connection on daemon startup (without GUI)
+  systemd.services.mullvad-daemon = {
+    postStart = ''
+      # Wait for the daemon to be ready before sending commands
+      while ! ${pkgs.mullvad-vpn}/bin/mullvad status >/dev/null 2>&1; do
+        sleep 1
+      done
+      ${pkgs.mullvad-vpn}/bin/mullvad auto-connect set on
+    '';
+  };
 }

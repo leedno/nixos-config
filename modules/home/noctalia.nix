@@ -8,28 +8,33 @@
   noctaliaPath = inputs.noctalia.packages.${system}.default;
   configDir = "${noctaliaPath}/share/noctalia-shell";
 in {
-  # 1. Install the package manually
+  # 1. Install the package
   home.packages = [noctaliaPath];
 
-  # 2. Configure Settings declaratively
-  # This writes the settings file directly.
-  # NOTE: This makes ~/.config/noctalia/settings.json read-only.
-  xdg.configFile."noctalia/settings.json".text = builtins.toJSON {
-    dock = {
-      enabled = false;
-    };
-  };
+  # 2. REMOVED: xdg.configFile block is gone.
+  # This "unlocks" the file so the UI can save changes.
 
-  # 3. Seed the shell code (Keep this as it was)
-  home.activation.seedNoctaliaShellCode = lib.hm.dag.entryAfter ["writeBoundary"] ''
+  # 3. Seed the shell code AND a starter config
+  home.activation.seedNoctalia = lib.hm.dag.entryAfter ["writeBoundary"] ''
     set -eu
-    DEST="$HOME/.config/quickshell/noctalia-shell"
-    SRC="${configDir}"
+    # Path for the shell logic
+    DEST_SHELL="$HOME/.config/quickshell/noctalia-shell"
+    # Path for the settings file
+    DEST_CONF="$HOME/.config/noctalia/settings.json"
 
-    if [ ! -d "$DEST" ]; then
+    # Copy shell code if missing (Basic stuff works)
+    if [ ! -d "$DEST_SHELL" ]; then
       mkdir -p "$HOME/.config/quickshell"
-      cp -R "$SRC" "$DEST"
-      chmod -R u+rwX "$DEST"
+      cp -R "${configDir}" "$DEST_SHELL"
+      chmod -R u+rwX "$DEST_SHELL"
+    fi
+
+    # Create a basic settings file ONLY if it doesn't exist
+    if [ ! -f "$DEST_CONF" ]; then
+      mkdir -p "$HOME/.config/noctalia"
+      # This provides a minimal working JSON so the bar isn't broken on first boot
+      echo '{"dock": {"enabled": false}}' > "$DEST_CONF"
+      chmod u+rw "$DEST_CONF"
     fi
   '';
 }

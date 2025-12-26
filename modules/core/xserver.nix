@@ -40,7 +40,7 @@ in {
     xkb = {
       layout = xkbLayout;
       variant = xkbVariant;
-      options = "caps:excape";
+      options = "caps:escape";
     };
   };
 }
