@@ -85,6 +85,7 @@ in {
       uwsm # Universal Wayland Session Manager
       gpu-screen-recorder
       brightnessctl
+      wl-clipboard
       cliphist
       socat
       v4l-utils

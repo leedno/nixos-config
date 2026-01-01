@@ -49,6 +49,7 @@ in {
     grim
     slurp
     wl-clipboard
+    cliphist
     swappy
     ydotool
     hyprpolkitagent

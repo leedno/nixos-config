@@ -6,27 +6,36 @@
     terminal
     ;
 
+  # Define the command once to keep it clean and easy to change later
+  qs = "quickshell -p $HOME/.config/quickshell/noctalia-shell";
+
   # Noctalia-specific bindings
   noctaliaBind = [
-    "$modifier,D, Noctalia Launcher, exec, noctalia-shell ipc call launcher toggle"
-    "$modifier SHIFT,Return, Noctalia Launcher, exec,  noctalia-shell ipc call launcher toggle"
-    "$modifier,M, Noctalia Notifications, exec, noctalia-shell ipc call notifications toggleHistory"
-    "$modifier,V, Noctalia Clipboard, exec, noctalia-shell ipc call launcher clipboard"
-    "$modifier ALT,P, Noctalia Settings, exec, noctalia-shell ipc call settings toggle"
-    "$modifier SHIFT,comma, Noctalia Settings, exec, noctalia-shell ipc call settings toggle"
-    "$modifier ALT,L, Noctalia Lock Screen, exec, noctalia-shell ipc call sessionMenu lockAndSuspend"
+    "$modifier,D, Noctalia Launcher, exec, ${qs} ipc call launcher toggle"
+    "$modifier SHIFT,Return, Noctalia Launcher, exec, ${qs} ipc call launcher toggle"
+    "$modifier,M, Noctalia Notifications, exec, ${qs} ipc call notifications toggleHistory"
+    "$modifier,V, Noctalia Clipboard, exec, ${qs} ipc call launcher clipboard"
+    "$modifier ALT,P, Noctalia Settings, exec, ${qs} ipc call settings toggle"
+    "$modifier SHIFT,comma, Noctalia Settings, exec, ${qs} ipc call settings toggle"
+    "$modifier ALT,L, Noctalia Lock Screen, exec, ${qs} ipc call sessionMenu lockAndSuspend"
 
-    "$modifier SHIFT,W, Noctalia Wallpaper, exec, noctalia-shell ipc call wallpaper toggle"
+    "$modifier SHIFT,W, Noctalia Wallpaper, exec, ${qs} ipc call wallpaper toggle"
 
-    "$modifier,X, Noctalia Power Menu, exec, noctalia-shell ipc call sessionMenu toggle"
-    "$modifier,C, Noctalia Control Center, exec, noctalia-shell ipc call controlCenter toggle"
-    "$modifier CTRL,R, Noctalia Screen Recorder, exec, noctalia-shell ipc call screenRecorder toggle"
+    "$modifier,X, Noctalia Power Menu, exec, ${qs} ipc call sessionMenu toggle"
+    "$modifier,C, Noctalia Control Center, exec, ${qs} ipc call controlCenter toggle"
+    "$modifier CTRL,R, Noctalia Screen Recorder, exec, ${qs} ipc call screenRecorder toggle"
   ];
 in {
   wayland.windowManager.hyprland.settings = {
     bindd =
       noctaliaBind
       ++ [
+        # ======= THE KEYS ON THE SIDE ========
+        ",Home, Noctalia Control Center, exec, ${qs} ipc call controlCenter toggle"
+        ",Page_Up, Noctalia Launcher, exec, ${qs} ipc call launcher toggle"
+        ",Page_Down, Noctalia Clipboard Manager, exec, ${qs} ipc call launcher clipboard"
+        ",End, Noctalia Power Menu, exec, ${qs} ipc call sessionMenu toggle"
+
         # ============= WORKSPACE OVERVIEW =============
         "$modifier, TAB, QS Overview, exec, qs ipc -c overview call overview toggle"
         # ============= TERMINALS =============
