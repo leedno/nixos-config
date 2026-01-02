@@ -36,6 +36,7 @@
 
     initExtra = ''
       # 1. Export Gemini Key from the system secret file
+      # Useful to have globally, even if NVF reads the file directly now
       if [ -f "/run/secrets/gemini_api_key" ];
       then
         export GEMINI_API_KEY=$(cat "/run/secrets/gemini_api_key" | tr -d '\n')
@@ -56,7 +57,7 @@
     shellAliases = {
       nix-fmt-all = "nix fmt ./";
       sv = "sudo nvim";
-      v = "nvim";
+      v = "nvim"; # Clean alias (no hacks needed)
       c = "clear";
       fr = "nh os switch --hostname ${profile}";
       up = "cd $HOME/leonos && git pull && nh os switch --hostname ${profile}";
