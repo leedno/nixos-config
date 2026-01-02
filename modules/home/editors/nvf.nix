@@ -14,15 +14,33 @@
         enable = true;
         setupOpts = {
           provider = "gemini";
+
+          behaviour = {
+            auto_suggestions = false;
+            auto_set_highlight_group = true;
+            auto_set_keymaps = true;
+            auto_apply_diff_after_generation = false; # <--- important setting
+            support_paste_from_clipboard = true;
+          };
+
+          system_prompt = ''
+            You are an expert coding tutor. Your goal is to help the user learn and understand.
+
+            RULES:
+            1. Explain concepts first; do not just provide code.
+            2. Do NOT provide full solutions immediately unless asked.
+            3. Use pseudocode or small snippets to guide the user.
+            4. If the user makes a mistake, explain WHY it is a mistake.
+          '';
+
           providers = {
             gemini = {
-              model = "gemini-flash-latest";
+              model = "gemini-2.0-flash";
               max_tokens = 4096;
             };
           };
         };
       };
-
       lsp.enable = true;
       vimAlias = true;
       viAlias = true;

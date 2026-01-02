@@ -13,7 +13,7 @@
   tmuxEnable = true;
   alacrittyEnable = false;
   vscodeEnable = false;
-  antigravityEnable = false;
+  antigravityEnable = true;
   obsEnable = false;
   zenEnable = false;
 
