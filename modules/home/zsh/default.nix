@@ -13,17 +13,14 @@
       highlighters = ["main" "brackets" "pattern" "regexp" "root" "line"];
     };
     historySubstringSearch.enable = true;
-
     history = {
       ignoreDups = true;
       save = 10000;
       size = 10000;
     };
-
     oh-my-zsh = {
       enable = true;
     };
-
     plugins = [
       {
         name = "powerlevel10k";
@@ -37,9 +34,10 @@
       }
     ];
 
-    initContent = ''
+    initExtra = ''
       # 1. Export Gemini Key from the system secret file
-      if [ -f "/run/secrets/gemini_api_key" ]; then
+      if [ -f "/run/secrets/gemini_api_key" ];
+      then
         export GEMINI_API_KEY=$(cat "/run/secrets/gemini_api_key" | tr -d '\n')
       fi
 
@@ -49,7 +47,8 @@
       bindkey "\ek" up-line-or-history
       bindkey "\el" forward-word
 
-      if [ -f $HOME/.zshrc-personal ]; then
+      if [ -f $HOME/.zshrc-personal ];
+      then
         source $HOME/.zshrc-personal
       fi
     '';
