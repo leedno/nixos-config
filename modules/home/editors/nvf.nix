@@ -80,7 +80,7 @@
       diagnostics = {
         enable = true;
         config = {
-          virtual_lines.enable = true;
+          virtual_lines.enable = false;
           underline = true;
         };
       };
