@@ -78,9 +78,9 @@
       };
 
       diagnostics = {
-        enable = true;
+        enable = false;
         config = {
-          virtual_lines.enable = false;
+          virtual_lines.enable = true;
           underline = true;
         };
       };

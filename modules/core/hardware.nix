@@ -12,6 +12,7 @@
     keyboard.qmk.enable = true;
     bluetooth.enable = true;
     bluetooth.powerOnBoot = true;
+    xpadneo.enable = true;
   };
   services.libinput.enable = true;
   services.udev.packages = [pkgs.via];
