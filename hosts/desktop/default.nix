@@ -31,9 +31,4 @@
     memoryPercent = 50; # Use up to 4GB of your RAM for compression
     priority = 100; # High priority: Use this FIRST
   };
-
-  programs.zsh.shellAliases = {
-    flush = "sudo swapoff -a && sudo swapon -a && echo 'Swap Flushed!'";
-    stats = "zramctl && echo '---' && swapon --show";
-  };
 }

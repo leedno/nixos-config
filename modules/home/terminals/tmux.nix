@@ -11,6 +11,7 @@
     clock24 = false;
 
     extraConfig = ''
+              set -s escape-time 0
               set-option -g status-position top
               set -ga terminal-overrides ",*:RGB"
               set -g default-terminal "tmux-256color"

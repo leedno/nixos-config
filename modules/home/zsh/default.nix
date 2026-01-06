@@ -67,6 +67,8 @@
       man = "batman";
       ts = "tmux new-session -A -s main";
       zg = "lazygit -p $(zoxide query -i)";
+      flush = "sudo swapoff -a && sudo swapon -a && echo 'Swap Flushed!'";
+      stats = "zramctl && echo '---' && swapon --show";
     };
   };
 }
