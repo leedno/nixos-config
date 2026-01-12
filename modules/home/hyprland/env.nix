@@ -30,6 +30,8 @@
         # ToDo: Pull default terminal from config
         "TERMINAL,kitty"
         "XDG_TERMINAL_EMULATOR,kitty"
+        "WLR_NO_HARDWARE_CURSORS, 1"
+        "NVD_BACKEND, direct"
       ];
     };
   };

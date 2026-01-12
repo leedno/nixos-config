@@ -142,7 +142,7 @@ in {
         disable_splash_rendering = true;
         enable_swallow = false;
         vfr = true; # Variable Frame Rate
-        vrr = 2; # Variable Refresh Rate  Might need to set to 0 for NVIDIA/AQ_DRM_DEVICES
+        vrr = 0; # Variable Refresh Rate  Might need to set to 0 for NVIDIA/AQ_DRM_DEVICES
         # Screen flashing to black momentarily or going black when app is fullscreen
         # Try setting vrr to 0
 
@@ -181,10 +181,11 @@ in {
 
       cursor = {
         sync_gsettings_theme = true;
-        no_hardware_cursors = 2; # change to 1 if want to disable
+        no_hardware_cursors = 1;
+        inactive_timeout = 1;
         enable_hyprcursor = false;
         warp_on_change_workspace = 2;
-        no_warps = true;
+        no_warps = false;
       };
 
       render = {
