@@ -62,7 +62,7 @@
           profile = gpuProfile;
         };
         modules = [
-          ./modules/core/overlays.nix
+          ./modules/core/system/overlays.nix
           ./profiles/${gpuProfile} # Loads profiles/main or profiles/laptop
           nix-flatpak.nixosModules.nix-flatpak
           inputs.sops-nix.nixosModules.sops

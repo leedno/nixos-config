@@ -4,13 +4,13 @@
   ...
 }: let
   # Import variables
-  vars = import ../../hosts/${host}/variables.nix;
+  inherit (import ../../../hosts/${host}/variables.nix) stylixImage;
 in {
   stylix = {
     enable = true;
 
     # Use the local path defined in variables.nix
-    image = vars.stylixImage;
+    image = stylixImage;
 
     # Keep your settings (adjust these if your previous file had different fonts/cursor)
     polarity = "dark";

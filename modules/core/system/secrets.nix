@@ -6,7 +6,7 @@
 }: {
   sops = {
     # Point to the secrets file relative to this module
-    defaultSopsFile = ../../secrets/gemini.yaml;
+    defaultSopsFile = ../../../secrets/gemini.yaml;
     defaultSopsFormat = "yaml";
 
     # Use the host's SSH key for decryption (Standard NixOS path)

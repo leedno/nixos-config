@@ -6,7 +6,7 @@
   profile,
   ...
 }: let
-  inherit (import ../../hosts/${host}/variables.nix) gitUsername;
+  inherit (import ../../../hosts/${host}/variables.nix) gitUsername;
 in {
   imports = [inputs.home-manager.nixosModules.home-manager];
   home-manager = {
@@ -16,7 +16,7 @@ in {
     sharedModules = [inputs.sops-nix.homeManagerModules.sops];
     extraSpecialArgs = {inherit inputs username host profile pkgs;};
     users.${username} = {
-      imports = [./../home];
+      imports = [../../home];
       home = {
         username = "${username}";
         homeDirectory = "/home/${username}";

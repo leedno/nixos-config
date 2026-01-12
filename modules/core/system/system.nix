@@ -1,5 +1,5 @@
 {host, ...}: let
-  vars = import ../../hosts/${host}/variables.nix;
+  vars = import ../../../hosts/${host}/variables.nix;
   consoleKeyMap = vars.consoleKeyMap or "us";
 in {
   nix = {

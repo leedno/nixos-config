@@ -56,7 +56,7 @@ in {
       wayland.enable = true;
       theme = "sddm-astronaut-theme";
       settings = let
-        vars = import ../../hosts/${host}/variables.nix;
+        vars = import ../../../hosts/${host}/variables.nix;
         keyboardLayout = vars.keyboardLayout or "us";
         keyboardVariant = vars.keyboardVariant or "";
       in {
@@ -69,7 +69,7 @@ in {
   };
 
   systemd.services.display-manager.environment = let
-    vars = import ../../hosts/${host}/variables.nix;
+    vars = import ../../../hosts/${host}/variables.nix;
     keyboardLayout = vars.keyboardLayout or "us";
     keyboardVariant = vars.keyboardVariant or "";
   in ({XKB_DEFAULT_LAYOUT = keyboardLayout;}
@@ -80,6 +80,6 @@ in {
   systemd.tmpfiles.rules = [
     "d /var/lib/AccountsService/icons 0775 root root -"
     # Link your image where SDDM expects it
-    "L+ /var/lib/AccountsService/icons/${username} - - - - ${../home/desktop/hyprland/animations/face.jpg}"
+    "L+ /var/lib/AccountsService/icons/${username} - - - - ${../../home/desktop/hyprland/animations/face.jpg}"
   ];
 }

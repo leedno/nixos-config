@@ -4,7 +4,7 @@
   host,
   ...
 }: let
-  vars = import ../../hosts/${host}/variables.nix;
+  vars = import ../../../hosts/${host}/variables.nix;
   inherit (vars) barChoice;
 
   # Noctalia-specific packages (Matugen & launcher)

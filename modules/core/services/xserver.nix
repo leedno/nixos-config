@@ -1,5 +1,5 @@
 {host, ...}: let
-  vars = import ../../hosts/${host}/variables.nix;
+  vars = (import ../../../hosts/${host}/variables.nix);
   keyboardLayout = vars.keyboardLayout or "us";
   keyboardVariant = vars.keyboardVariant or "";
 
