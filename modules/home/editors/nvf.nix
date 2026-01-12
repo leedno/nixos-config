@@ -157,6 +157,12 @@
           action = "<Right>";
           desc = "Move right in insert mode";
         }
+        {
+          key = "<leader>gg";
+          mode = ["n"];
+          action = "<cmd>term lazygit<cr>";
+          desc = "Open LazyGit";
+        }
       ];
 
       telescope.enable = true;
@@ -182,10 +188,16 @@
         enableFormat = true;
         enableTreesitter = true;
         enableExtraDiagnostics = true;
-        nix.enable = true;
+        nix = {
+          enable = true;
+          format.type = ["alejandra"];
+        };
         clang.enable = true;
         zig.enable = true;
-        python.enable = true;
+        python = {
+          enable = true;
+          format.type = ["black"];
+        };
         markdown.enable = true;
         ts = {
           enable = true;
