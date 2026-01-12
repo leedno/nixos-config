@@ -31,4 +31,9 @@
     memoryPercent = 50; # Use up to 4GB of your RAM for compression
     priority = 100; # High priority: Use this FIRST
   };
+
+  environment.variables = {
+    # This tells the system to load the key into your environment at login
+    GEMINI_API_KEY = "$(cat /run/secrets/gemini_api_key | tr -d '\n')";
+  };
 }

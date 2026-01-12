@@ -7,6 +7,13 @@
 }: {
   programs.zsh = {
     enable = true;
+
+    initExtraFirst = ''
+      if [[ -r "''${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-''${(%):-%n}.zsh" ]]; then
+        source "''${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-''${(%):-%n}.zsh"
+      fi
+    '';
+
     autosuggestion.enable = true;
     syntaxHighlighting = {
       enable = true;
@@ -35,14 +42,7 @@
     ];
 
     initExtra = ''
-      # 1. Export Gemini Key from the system secret file
-      # Useful to have globally, even if NVF reads the file directly now
-      if [ -f "/run/secrets/gemini_api_key" ];
-      then
-        export GEMINI_API_KEY=$(cat "/run/secrets/gemini_api_key" | tr -d '\n')
-      fi
-
-      # 2. Keybindings and Personal Config
+      # Keybindings and Personal Config
       bindkey "\eh" backward-word
       bindkey "\ej" down-line-or-history
       bindkey "\ek" up-line-or-history
@@ -57,7 +57,7 @@
     shellAliases = {
       nix-fmt-all = "nix fmt ./";
       sv = "sudo nvim";
-      v = "nvim"; # Clean alias (no hacks needed)
+      v = "nvim"; # Clean alias
       c = "clear";
       fr = "nh os switch --hostname ${profile}";
       up = "cd $HOME/leonos && git pull && nh os switch --hostname ${profile}";
