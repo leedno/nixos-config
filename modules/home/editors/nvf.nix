@@ -41,6 +41,13 @@
           };
         };
       };
+      
+      theme = {
+        enable = true;
+        name = pkgs.lib.mkForce "catppuccin";
+        style = pkgs.lib.mkForce "mocha";
+      };
+
       lsp.enable = true;
       vimAlias = true;
       viAlias = true;
@@ -74,6 +81,16 @@
           "<C-j>" = {action = "<C-w>j";}; # Focus down
           "<C-k>" = {action = "<C-w>k";}; # Focus up
           "<C-l>" = {action = "<C-w>l";}; # Focus right
+          
+          # Buffer Navigation
+          "H" = {
+            action = ":bprev<CR>";
+            desc = "Previous buffer";
+          };
+          "L" = {
+            action = ":bnext<CR>";
+            desc = "Next buffer";
+          };
         };
       };
 
@@ -210,7 +227,7 @@
 
       statusline.lualine = {
         enable = true;
-        theme = "base16";
+        theme = pkgs.lib.mkForce "catppuccin";
       };
 
       autopairs.nvim-autopairs.enable = true;
