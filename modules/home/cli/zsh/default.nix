@@ -36,23 +36,26 @@
       }
     ];
 
-    initExtra = lib.mkOrder 100 ''
-      # P10k Instant Prompt
-      if [[ -r "''${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-''${(%):-%n}.zsh" ]]; then
-        source "''${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-''${(%):-%n}.zsh"
-      fi
+    initContent = lib.mkMerge [
+      (lib.mkBefore ''
+        # P10k Instant Prompt
+        if [[ -r "''${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-''${(%):-%n}.zsh" ]]; then
+          source "''${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-''${(%):-%n}.zsh"
+        fi
+      '')
+      ''
+        # Keybindings and Personal Config
+        bindkey "\eh" backward-word
+        bindkey "\ej" down-line-or-history
+        bindkey "\ek" up-line-or-history
+        bindkey "\el" forward-word
 
-      # Keybindings and Personal Config
-      bindkey "\eh" backward-word
-      bindkey "\ej" down-line-or-history
-      bindkey "\ek" up-line-or-history
-      bindkey "\el" forward-word
-
-      if [ -f $HOME/.zshrc-personal ];
-      then
-        source $HOME/.zshrc-personal
-      fi
-    '';
+        if [ -f $HOME/.zshrc-personal ];
+        then
+          source $HOME/.zshrc-personal
+        fi
+      ''
+    ];
 
     shellAliases = {
       nix-fmt-all = "nix fmt ./";
