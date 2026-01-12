@@ -8,8 +8,6 @@
   programs.zsh = {
     enable = true;
 
-      fi
-    '';
 
     autosuggestion.enable = true;
     syntaxHighlighting = {
