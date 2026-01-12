@@ -1,10 +1,5 @@
 {host, ...}: let
-  vars = import ../../../hosts/${host}/variables.nix;
-  inherit
-    (vars)
-    browser
-    terminal
-    ;
+  inherit (import ../../../../hosts/${host}/variables.nix) browser terminal extraMonitorSettings;
 
   # Define the command once to keep it clean and easy to change later
   qs = "quickshell -p $HOME/.config/quickshell/noctalia-shell";

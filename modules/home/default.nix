@@ -14,57 +14,57 @@
     zenEnable
     ;
 
-  barModule = ./noctalia.nix;
+  barModule = ./desktop/noctalia.nix;
 in {
   home.file."Pictures/Wallpapers" = {
     source = ../../wallpapers;
     recursive = true;
   };
 
-  home.file.".face".source = ./hyprland/face.jpg;
-  home.file.".face.icon".source = ./hyprland/face.jpg;
+  home.file.".face".source = ./desktop/hyprland/animations/face.jpg;
+  home.file.".face.icon".source = ./desktop/hyprland/animations/face.jpg;
 
   imports =
     [
-      ./amfora.nix
-      ./bash.nix
-      ./bashrc-personal.nix
-      ./overview.nix
-      ./python.nix
+      ./programs/amfora.nix
+      ./cli/bash.nix
+      ./cli/bashrc-personal.nix
+      ./system/overview.nix
+      ./system/python.nix
       ./cli/bat.nix
       ./cli/btop.nix
       ./cli/bottom.nix
       ./cli/cava.nix
 
       #./emoji.nix # Removed for optimization
-      ./eza.nix
-      ./fastfetch
+      ./cli/eza.nix
+      ./cli/fastfetch
       ./cli/fzf.nix
       ./cli/gh.nix
       ./cli/git.nix
-      ./gtk.nix
+      ./desktop/gtk.nix
       ./cli/htop.nix
-      ./hyprland
+      ./desktop/hyprland
       ./terminals/kitty.nix
       ./cli/lazygit.nix
       ./editors/nvf.nix
 
       ./editors/nano.nix
-      ./rofi
-      ./qt.nix
+      ./desktop/rofi
+      ./desktop/qt.nix
       ./scripts
       ./scripts/gemini-cli.nix
-      ./stylix.nix
-      ./swappy.nix
-      ./swaync.nix
-      ./tealdeer.nix
-      ./virtmanager.nix
+      ./system/stylix.nix
+      ./desktop/swappy.nix
+      ./desktop/swaync.nix
+      ./cli/tealdeer.nix
+      ./programs/virtmanager.nix
       barModule
-      ./wlogout
-      ./xdg.nix
-      ./yazi
-      ./zoxide.nix
-      ./zsh
+      ./desktop/wlogout
+      ./system/xdg.nix
+      ./cli/yazi
+      ./cli/zoxide.nix
+      ./cli/zsh
     ]
     ++ (
       if vscodeEnable
@@ -78,12 +78,12 @@ in {
     )
     ++ (
       if obsEnable
-      then [./obs-studio.nix]
+      then [./programs/obs-studio.nix]
       else []
     )
     ++ (
       if zenEnable
-      then [./zen-browser.nix]
+      then [./programs/zen-browser.nix]
       else []
     )
     ++ (

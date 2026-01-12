@@ -5,7 +5,7 @@
   lib,
   ...
 }: let
-  vars = import ../../../hosts/${host}/variables.nix;
+  vars = import ../../../../hosts/${host}/variables.nix;
   extraMonitorSettings = vars.extraMonitorSettings or "";
   keyboardLayout = vars.keyboardLayout or "us";
   keyboardVariant = vars.keyboardVariant or "";
@@ -62,8 +62,8 @@ in {
   ];
   # Place Files Inside Home Directory
   home.file = {
-    ".face.icon".source = ./face.jpg;
-    ".config/face.jpg".source = ./face.jpg;
+    ".face.icon".source = ./animations/face.jpg;
+    ".config/face.jpg".source = ./animations/face.jpg;
   };
   wayland.windowManager.hyprland = {
     enable = true;
@@ -176,7 +176,7 @@ in {
 
       ecosystem = {
         no_donation_nag = true;
-        no_update_news = false;
+        no_update_news = true;
       };
 
       cursor = {

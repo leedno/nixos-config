@@ -37,7 +37,7 @@
     shellIntegration.enableBashIntegration = true;
     shellIntegration.mode = "enabled";
 
-    theme = "Catppuccin-Mocha";
+    themeFile = "Catppuccin-Mocha";
 
     extraConfig = ''
 

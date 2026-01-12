@@ -32,7 +32,7 @@
     (import ./qs-wallpapers-restore.nix {inherit pkgs;})
     (import ./qs-wlogout.nix {inherit pkgs;})
     (import ./qs-docs.nix {inherit pkgs;})
-    (import ./docs-parser.nix {inherit pkgs;})
+
     (import ./launch-nwg-menu.nix {inherit pkgs;})
     (import ./zcli.nix {
       inherit pkgs profile;

@@ -80,6 +80,6 @@ in {
   systemd.tmpfiles.rules = [
     "d /var/lib/AccountsService/icons 0775 root root -"
     # Link your image where SDDM expects it
-    "L+ /var/lib/AccountsService/icons/${username} - - - - ${../home/hyprland/face.jpg}"
+    "L+ /var/lib/AccountsService/icons/${username} - - - - ${../home/desktop/hyprland/animations/face.jpg}"
   ];
 }

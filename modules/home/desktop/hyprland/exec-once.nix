@@ -1,5 +1,5 @@
 {host, ...}: let
-  vars = import ../../../hosts/${host}/variables.nix;
+  inherit (import ../../../../hosts/${host}/variables.nix) browser terminal extraMonitorSettings;
 in {
   wayland.windowManager.hyprland.settings = {
     exec-once = [
