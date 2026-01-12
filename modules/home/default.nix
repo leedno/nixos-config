@@ -35,7 +35,8 @@ in {
       ./cli/btop.nix
       ./cli/bottom.nix
       ./cli/cava.nix
-      ./emoji.nix
+      ./cli/cava.nix
+      #./emoji.nix # Removed for optimization
       ./eza.nix
       ./fastfetch
       ./cli/fzf.nix
