@@ -35,7 +35,7 @@ in {
       ./cli/btop.nix
       ./cli/bottom.nix
       ./cli/cava.nix
-      ./cli/cava.nix
+
       #./emoji.nix # Removed for optimization
       ./eza.nix
       ./fastfetch
@@ -48,7 +48,7 @@ in {
       ./terminals/kitty.nix
       ./cli/lazygit.nix
       ./editors/nvf.nix
-      #./editors/nixvim.nix
+
       ./editors/nano.nix
       ./rofi
       ./qt.nix

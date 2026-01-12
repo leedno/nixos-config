@@ -16,11 +16,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    # Checking nixvim to see if it's better
-    nixvim = {
-      url = "github:nix-community/nixvim/nixos-25.11";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+
 
     # Google Antigravity (IDE)
     antigravity-nix = {
@@ -46,7 +42,7 @@
   outputs = {
     nixpkgs,
     home-manager,
-    nixvim,
+
     nix-flatpak,
     alejandra,
     ...
