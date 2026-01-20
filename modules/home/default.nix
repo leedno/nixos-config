@@ -38,6 +38,7 @@ in {
 
       #./emoji.nix # Removed for optimization
       ./cli/eza.nix
+      ./cli/direnv.nix
       ./cli/fastfetch
       ./cli/fzf.nix
       ./cli/gh.nix

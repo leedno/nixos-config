@@ -90,22 +90,30 @@
 
       ##### Display Popups #####
 
-      bind C-y display-popup \
+      ##### Display Popups (Top Tier Instant Access) #####
+      
+      # Alt-g: Lazygit (Instant)
+      bind -n M-g display-popup \
         -d "#{pane_current_path}" \
         -w 80% \
         -h 80% \
         -E "lazygit"
 
-      bind C-n display-popup -E 'bash -i -c "read -p \"Session name: \" name; tmux new-session -d -s \$name && tmux switch-client -t \$name"'
-      bind C-j display-popup -E "tmux list-sessions | sed -E 's/:.*$//' | grep -v \"^$(tmux display-message -p '#S')\$\" | fzf --reverse | xargs tmux switch-client -t"
+      # Alt-S: Smart Session Manager (Custom Script)
+      bind -n M-S display-popup -E 'bash -i -c "read -p \"Session name: \" name; tmux new-session -d -s \$name && tmux switch-client -t \$name"'
+      
+      # Alt-j: Session Switcher (Enhanced)
+      bind -n M-j display-popup -E "tmux list-sessions | sed -E 's/:.*$//' | grep -v \"^$(tmux display-message -p '#S')\$\" | fzf --reverse | xargs tmux switch-client -t"
 
-      bind C-r display-popup \
+      # Alt-y: Yazi (file manager)
+      bind -n M-y display-popup \
         -d "#{pane_current_path}" \
         -w 90% \
         -h 90% \
         -E "yazi"
 
-      bind C-t display-popup \
+      # Alt-t: Floating Terminal
+      bind -n M-t display-popup \
         -d "#{pane_current_path}" \
         -w 75% \
         -h 75% \

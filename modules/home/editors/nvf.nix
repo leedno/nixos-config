@@ -11,7 +11,7 @@
 
     settings.vim = {
       assistant.avante-nvim = {
-        enable = true;
+        enable = false;
         setupOpts = {
           provider = "gemini";
 
@@ -163,6 +163,12 @@
           action = "<cmd>term lazygit<cr>";
           desc = "Open LazyGit";
         }
+        {
+          key = "<leader>y";
+          mode = ["n"];
+          action = "<cmd>Yazi<cr>";
+          desc = "Open Yazi";
+        }
       ];
 
       telescope.enable = true;
@@ -235,6 +241,10 @@
           package = dressing-nvim;
           setup = "require('dressing').setup()";
         };
+        yazi-nvim = {
+          package = yazi-nvim;
+          setup = "require('yazi').setup({ open_for_directories = true })";
+        };
       };
 
       statusline.lualine = {
@@ -258,7 +268,15 @@
       };
       projects.project-nvim.enable = true;
       dashboard.dashboard-nvim.enable = true;
-      filetree.neo-tree.enable = true;
+      filetree.neo-tree = {
+        enable = true;
+        setupOpts = {
+          resource_management.window.mappings = {
+            "l" = "open";
+            "h" = "close_node";
+          };
+        };
+      };
       notify = {
         nvim-notify.enable = true;
         nvim-notify.setupOpts.background_colour = "#${config.lib.stylix.colors.base01}";

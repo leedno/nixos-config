@@ -3,5 +3,6 @@
     #mullvad-browser
     via
     typioca
+    sqlite
   ];
 }
