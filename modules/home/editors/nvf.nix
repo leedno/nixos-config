@@ -41,7 +41,7 @@
           };
         };
       };
-      
+
       theme = {
         enable = true;
         name = pkgs.lib.mkForce "catppuccin";
@@ -81,7 +81,7 @@
           "<C-j>" = {action = "<C-w>j";}; # Focus down
           "<C-k>" = {action = "<C-w>k";}; # Focus up
           "<C-l>" = {action = "<C-w>l";}; # Focus right
-          
+
           # Buffer Navigation
           "H" = {
             action = ":bprev<CR>";
@@ -237,6 +237,10 @@
       # Fix for "Native input provider" warning
       # We manually add dressing.nvim because it is not a built-in nvf option
       extraPlugins = with pkgs.vimPlugins; {
+        vim-dadbod = {package = vim-dadbod;};
+        vim-dadbod-ui = {package = vim-dadbod-ui;};
+        vim-dadbod-completion = {package = vim-dadbod-completion;};
+
         dressing-nvim = {
           package = dressing-nvim;
           setup = "require('dressing').setup()";
