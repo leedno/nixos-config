@@ -7,7 +7,7 @@ _: {
     nixvim.enable = false;
     yazi.enable = false;
     qt = {
-      enable = true;
+      enable = false;
       platform = "qtct";
     };
   };

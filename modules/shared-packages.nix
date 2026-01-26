@@ -4,5 +4,6 @@
     via
     typioca
     sqlite
+    sqlitebrowser
   ];
 }
