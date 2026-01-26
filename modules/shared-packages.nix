@@ -5,5 +5,6 @@
     typioca
     sqlite
     nodemon
+    sqlitebrowser
   ];
 }
