@@ -6,5 +6,6 @@
     sqlite
     nodemon
     sqlitebrowser
+    postman
   ];
 }
