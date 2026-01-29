@@ -18,6 +18,7 @@ in {
     ./services/quickshell.nix
     ./system/packages.nix
     ./services/printing.nix
+    ./services/postgresql.nix
     # Conditionally import the display manager module
     (
       if vars.displayManager == "tui"
